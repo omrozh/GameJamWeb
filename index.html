@@ -32,7 +32,8 @@
         <input type="button" class="btn btn-primary" onclick="store()" style="width: 100%;" value="Submit Application">
         <br>
         <input type="checkbox" id="leader"> I am the team leader
-        * If you are a team every member of your team should fill this form with the same team name.
+        <br>
+        * This form should be filled by every member of your team
     </center>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -71,7 +72,7 @@
         }
 
         var ref = firebase.storage();
-        var storeref = ref.ref("applications/" + teamname + ".txt");
+        var storeref = ref.ref("applications/" + teamname + "/" + name + ".txt");
         var file = new Blob([teamname + "\n" + name + "\n" + surname + "\n" + email + "\n" + link + "\n" + tel + "\n leader:" + leader], { type: "text/plain;charset=utf-8" });
 
         storeref.put(file).then(function() {
