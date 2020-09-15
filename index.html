@@ -11,6 +11,9 @@
     <center style="color: white; margin-right: 30%; margin-left: 30%;">
         <h1 class="display-1">2020 Game Jam Application</h1>
         <br>
+        Teamname
+        <input style="width: 100%" type="text" id="teamname" class="form-control">
+        <br>
         Firstname
         <input style="width: 100%" type="text" id="firstname" class="form-control">
         <br>
@@ -27,6 +30,9 @@
         <input type="text" id="drivelink" class="form-control" style="width: 100%;">
         <br>
         <input type="button" class="btn btn-primary" onclick="store()" style="width: 100%;" value="Submit Application">
+        <br>
+        <input type="checkbox" id="leader"> I am the team leader
+        * If you are a team every member of your team should fill this form with the same team name.
     </center>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -52,10 +58,12 @@
 
     function store(){
         var name = document.getElementById("firstname").value;
+        var teamname = document.getElementById("teamname").value;
         var surname = document.getElementById("surname").value;
         var email = document.getElementById("email").value;
         var tel = document.getElementById("telephone").value;
         var link = document.getElementById("drivelink").value;
+        var leader = document.getElementById("leader").checked;
 
         if(name.length < 4 || surname.length < 4 || email.length < 4 || tel.length < 4 || link.length < 4){
             alert("Missing fields");
@@ -63,8 +71,8 @@
         }
 
         var ref = firebase.storage();
-        var storeref = ref.ref("applications/" + name + ".txt");
-        var file = new Blob([name + "\n" + surname + "\n" + email + "\n" + link + "\n" + tel], { type: "text/plain;charset=utf-8" });
+        var storeref = ref.ref("applications/" + teamname + ".txt");
+        var file = new Blob([teamname + "\n" + name + "\n" + surname + "\n" + email + "\n" + link + "\n" + tel + "\n leader:" + leader], { type: "text/plain;charset=utf-8" });
 
         storeref.put(file).then(function() {
             alert('Your application is complete!');
