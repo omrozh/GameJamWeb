@@ -5,28 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Jam Application</title>
 </head>
-<body>
+<body style="background-color: rgb(64,64,64);">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <center>
+    <center style="color: white; margin-right: 30%; margin-left: 30%;">
         <h1 class="display-1">2020 Game Jam Application</h1>
         <br>
         Firstname
-        <input style="width: 40%" type="text" id="firstname" class="form-control">
+        <input style="width: 100%" type="text" id="firstname" class="form-control">
         <br>
         Surname
-        <input type="text" style="width: 40%" id="surname" class="form-control">
+        <input type="text" style="width: 100%" id="surname" class="form-control">
         <br>
         Phone number
-        <input type="tel" id="telephone" class="form-control" style="width: 40%;">
+        <input type="tel" id="telephone" class="form-control" style="width: 100%;">
         <br>
         Email
-        <input type="text" id="email" class="form-control" style="width: 40%;">
+        <input type="text" id="email" class="form-control" style="width: 100%;">
         <br>
         Google Drive link for your game
-        <input type="text" id="drivelink" class="form-control" style="width: 40%;">
+        <input type="text" id="drivelink" class="form-control" style="width: 100%;">
         <br>
-        <input type="button" class="btn btn-primary" onclick="store()" style="width: 40%;" value="Submit Application">
+        <input type="button" class="btn btn-primary" onclick="store()" style="width: 100%;" value="Submit Application">
     </center>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -69,7 +69,6 @@
         storeref.put(file).then(function() {
             alert('Your application is complete!');
             saveAs(file, 'Game Jam Application.txt');
-            window.location = "https://gamejam.ml";
         });
     }
     </script>
